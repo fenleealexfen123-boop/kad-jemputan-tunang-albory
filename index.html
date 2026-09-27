@@ -142,20 +142,6 @@
   }
 </style>
 
-<script>
-function buatBunga(){
-  const bunga = document.createElement("div");
-  bunga.classList.add("bunga");
-  bunga.innerHTML = "🌸";
-  bunga.style.left = Math.random() * window.innerWidth + "px";
-  document.body.appendChild(bunga);
-
-  setTimeout(()=>{ bunga.remove(); }, 8000);
-}
-setInterval(buatBunga, 1000);
-</script>
-
-
   </style>
 </head>
 <body>
@@ -225,6 +211,35 @@ var kiraan = setInterval(function() {
   document.getElementById("countdown").innerHTML =
     hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
 }, 1000);
+
+  <style>
+  .bunga {
+    position: fixed;
+    top: -50px;
+    font-size: 28px;
+    animation: jatuh 8s linear infinite;
+    color: pink;
+  }
+
+  @keyframes jatuh {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+</style>
+  </script>
+
+<script>
+function buatBunga(){
+  const bunga = document.createElement("div");
+  bunga.classList.add("bunga");
+  bunga.innerHTML = "🌸";
+  bunga.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(bunga);
+
+  setTimeout(()=>{ bunga.remove(); }, 8000);
+}
+setInterval(buatBunga, 1000);
+
 </script>
   <style>
   .bunga {

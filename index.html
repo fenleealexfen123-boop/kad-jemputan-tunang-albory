@@ -127,21 +127,6 @@
       color: #b22222;
     }
 
-    <style>
-  .bunga {
-    position: fixed;
-    top: -50px;
-    font-size: 28px;
-    animation: jatuh 8s linear infinite;
-    color: pink;
-  }
-
-  @keyframes jatuh {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-  }
-</style>
-
   </style>
 </head>
 <body>
@@ -152,17 +137,17 @@
 </div>
 
 <div class="card" id="kad" style="display:none;">
-  <h1>Majlis Perkhawinan</h1>
-  <h2>Albory Gysper & Shafikah Azman</h2>
+  <h1>Majlis Pertunangan</h1>
+  <h2>Callvie Saggon & Joyce Ester Alex</h2>
 
   <img src="tunang.jpeg" class="hero-img">
 
   <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis pertunangan kami.</p>
 
   <p>
-    📅 Tarikh: 10 Oktober 2026<br>
-    ⏰ Ketibaan: 12:00 Petang<br>
-    📍 Tempat: Kg.Air Semporna
+    📅 Tarikh: 5 September 2026<br>
+    ⏰ Ketibaan: 11:00 Pagi<br>
+    📍 Tempat: Sugud Timpangoh, Penampang (BMB HOMESTAY)
   </p>
 
   <h3>Menuju Hari Bahagia</h3>
@@ -211,45 +196,7 @@ var kiraan = setInterval(function() {
   document.getElementById("countdown").innerHTML =
     hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
 }, 1000);
-
-  <style>
-  .bunga {
-    position: fixed;
-    top: -50px;
-    font-size: 28px;
-    animation: jatuh 8s linear infinite;
-    color: pink;
-  }
-
-  @keyframes jatuh {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-  }
-
-function buatBunga(){
-  const bunga = document.createElement("div");
-  bunga.classList.add("bunga");
-  bunga.innerHTML = "🌸";
-  bunga.style.left = Math.random() * window.innerWidth + "px";
-  document.body.appendChild(bunga);
-
-  setTimeout(()=>{ bunga.remove(); }, 8000);
-}
-setInterval(buatBunga, 1000);
-
-  .bunga {
-    position: fixed;
-    top: -50px;
-    font-size: 28px;
-    animation: jatuh 8s linear infinite;
-    color: pink;
-  }
-
-  @keyframes jatuh {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-  }
-</style>
+</script>
 
 <audio autoplay loop>
   <source src="lagu.mpeg" type="audio/mpeg">
@@ -257,3 +204,4 @@ setInterval(buatBunga, 1000);
 
 </body>
 </html>
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>Kad Jemputan Tunang</title>
+  <meta name="description" content="Jemputan majlis tunang kami, sila klik untuk maklumat lanjut.">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff5f5, #ffe4e1);
+      text-align: center;
+    }
+
+    .sampul {
+      font-size: 80px;
+      margin-top: 120px;
+      cursor: pointer;
+      animation: goyang 2s infinite;
+      color: #d2691e;
+    }
+
+    @keyframes goyang {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .card {
+      background: white;
+      width: 95%;
+      max-width: 600px;
+      padding: 40px 30px;
+      border-radius: 25px;
+      margin: 40px auto;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      color: #b22222;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .hero-img {
+      width: 85%;
+      max-width: 350px;
+      border-radius: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 25px rgba(255,182,193,0.6);
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    #countdown {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #b22222;
+      animation: warna 4s infinite;
+    }
+
+    @keyframes warna {
+      0% { color: #b22222; }
+      50% { color: #ff69b4; }
+      100% { color: #b22222; }
+    }
+
+    button {
+      background: linear-gradient(135deg, #b22222, #ff69b4);
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    input, select, textarea {
+      width: 90%;
+      padding: 12px;
+      margin-top: 12px;
+      border: 1px solid #ff69b4;
+      border-radius: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    label {
+      font-weight: bold;
+      color: #b22222;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="sampul" onclick="bukaKad()">
+  💌
+  <p>Klik untuk buka jemputan</p>
+</div>
+
+<div class="card" id="kad" style="display:none;">
+  <h1>Majlis Perkhawinan</h1>
+  <h2>Albory Gysper & Shafikah Azman</h2>
+
+  <img src="tunang.jpeg" class="hero-img">
+
+  <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis pertunangan kami.</p>
+
+  <p>
+    📅 Tarikh: 10 Oktober 2026<br>
+    ⏰ Ketibaan: 12:00 Petang<br>
+    📍 Tempat: Kg.Air Semporna
+  </p>
+
+  <h3>Menuju Hari Bahagia</h3>
+  <h2 id="countdown"></h2>
+
+  <h3>Sahkan Kehadiran</h3>
+  <form action="https://formspree.io/f/meajjeaj" method="POST">
+    <label>Nama Tetamu</label><br>
+    <input type="text" name="Nama" required><br><br>
+
+    <label>Kehadiran</label><br>
+    <select name="Kehadiran" required>
+      <option value="">Pilih</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select><br><br>
+
+    <label>Ucapan untuk pasangan</label><br>
+    <textarea name="Ucapan" rows="4"></textarea><br><br>
+
+    <button type="submit">Hantar Ucapan 📝</button>
+  </form>
+
+  <a href="https://maps.app.goo.gl/WsE3JJa4ftWFX4L7A" target="_blank">
+    <button>Buka Lokasi 📍</button>
+  </a>
+</div>
+
+<script>
+function bukaKad(){
+  document.querySelector(".sampul").style.display="none";
+  document.getElementById("kad").style.display="block";
+  document.querySelector("audio").play();
+}
+
+var tarikhMajlis = new Date("September 5, 2026 11:00:00").getTime();
+var kiraan = setInterval(function() {
+  var sekarang = new Date().getTime();
+  var beza = tarikhMajlis - sekarang;
+
+  var hari = Math.floor(beza / (1000 * 60 * 60 * 24));
+  var jam = Math.floor((beza % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minit = Math.floor((beza % (1000 * 60 * 60)) / (1000 * 60));
+  var saat = Math.floor((beza % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
+}, 1000);
+</script>
+
+<audio autoplay loop>
+  <source src="lagu.mpeg" type="audio/mpeg">
+</audio>
+
+</body>
+</html>

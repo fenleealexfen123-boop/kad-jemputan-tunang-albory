@@ -138,16 +138,16 @@
 
 <div class="card" id="kad" style="display:none;">
   <h1>Majlis Pertunangan</h1>
-  <h2>Callvie Saggon & Joyce Ester Alex</h2>
+  <h2>Albory Gysper & Syafikah Ahmad </h2>
 
   <img src="tunang.jpeg" class="hero-img">
 
   <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis pertunangan kami.</p>
 
   <p>
-    📅 Tarikh: 5 September 2026<br>
-    ⏰ Ketibaan: 11:00 Pagi<br>
-    📍 Tempat: Sugud Timpangoh, Penampang (BMB HOMESTAY)
+    📅 Tarikh: 10 oktober 2026<br>
+    ⏰ Ketibaan: 12:00 Petang<br>
+    📍 Tempat: Kampung Air Semporna
   </p>
 
   <h3>Menuju Hari Bahagia</h3>
@@ -183,7 +183,7 @@ function bukaKad(){
   document.querySelector("audio").play();
 }
 
-var tarikhMajlis = new Date("September 5, 2026 11:00:00").getTime();
+var tarikhMajlis = new Date("October 10, 2026 12:00:00").getTime();
 var kiraan = setInterval(function() {
   var sekarang = new Date().getTime();
   var beza = tarikhMajlis - sekarang;
@@ -192,6 +192,10 @@ var kiraan = setInterval(function() {
   var jam = Math.floor((beza % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minit = Math.floor((beza % (1000 * 60 * 60)) / (1000 * 60));
   var saat = Math.floor((beza % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
+}, 1000);
 
   document.getElementById("countdown").innerHTML =
     hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";

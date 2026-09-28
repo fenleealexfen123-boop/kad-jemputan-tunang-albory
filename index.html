@@ -2,229 +2,565 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-  <title>Kad Jemputan Tunang</title>
-  <meta name="description" content="Jemputan majlis tunang kami, sila klik untuk maklumat lanjut.">
-
-  <!-- Font elegan -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <meta name="description" content="Jemputan majlis perkahwinan Albory Gysper & Syafikah Azman">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff5f5, #ffe4e1);
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #fffafa 0%, #ffeef1 45%, #f8dfe3 100%);
+      color: #333;
+      overflow-x: hidden;
+    }
+    /* =========================
+       MUKA DEPAN
+    ========================= */
+    .cover {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px 15px;
+    }
+    .cover-card {
+      width: 100%;
+      max-width: 410px;
+      min-height: 650px;
+      padding: 50px 25px;
+      border: 1px solid rgba(139, 0, 0, 0.15);
+      border-radius: 25px;
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.90),
+          rgba(255,245,247,0.90)
+        );
+      box-shadow:
+        0 20px 50px rgba(100, 30, 40, 0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: coverIn 1.2s ease;
     }
-
-    .sampul {
-      font-size: 80px;
-      margin-top: 100px;
-      cursor: pointer;
-      animation: goyang 2s infinite;
-      color: #d2691e;
+    @keyframes coverIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-
-    .sampul p {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      margin-top: 10px;
-      color: #8B0000;
-    }
-
-    @keyframes goyang {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(5deg); }
-      50% { transform: rotate(-5deg); }
-      100% { transform: rotate(0deg); }
-    }
-
-    .card {
-      background: linear-gradient(135deg, #ffffff, #fff0f5);
-      width: 95%;
-      max-width: 350px; /* lebih kecil untuk telefon */
-      padding: 30px 20px;
-      border-radius: 20px;
-      margin: 20px auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      animation: fadeIn 1.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
+    .flower {
+      position: absolute;
       font-size: 42px;
-      color: #8B0000;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
+      opacity: 0.7;
     }
-
-    h2 {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 22px;
-      color: #444;
+    .flower1 {
+      top: 20px;
+      left: 18px;
+      transform: rotate(-20deg);
+    }
+    .flower2 {
+      top: 20px;
+      right: 18px;
+      transform: rotate(20deg);
+    }
+    .flower3 {
+      bottom: 20px;
+      left: 18px;
+      transform: rotate(20deg);
+    }
+    .flower4 {
+      bottom: 20px;
+      right: 18px;
+      transform: rotate(-20deg);
+    }
+    .small-title {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #8b0000;
+      margin-bottom: 30px;
+    }
+    .ring {
+      font-size: 55px;
       margin-bottom: 15px;
+      animation: floating 3s ease-in-out infinite;
     }
-
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 11vw, 55px);
+      line-height: 1.15;
+      color: #8b0000;
+      margin: 0;
+    }
+    .and {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      color: #b8860b;
+      margin: 8px 0;
+    }
+    .cover-date {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #555;
+      margin-top: 25px;
+    }
+    .open-button {
+      margin-top: 40px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(
+        135deg,
+        #8b0000,
+        #c94b5a
+      );
+      color: white;
+      font-size: 15px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow:
+        0 8px 20px rgba(139,0,0,0.25);
+      transition: 0.3s;
+    }
+    .open-button:hover {
+      transform: translateY(-3px);
+    }
+    .open-button:active {
+      transform: scale(0.96);
+    }
+    .tap-text {
+      font-size: 12px;
+      color: #888;
+      margin-top: 12px;
+    }
+    /* =========================
+       KAD UTAMA
+    ========================= */
+    .invitation {
+      display: none;
+      width: 100%;
+      padding: 20px 12px 40px;
+    }
+    .card {
+      width: 100%;
+      max-width: 430px;
+      margin: auto;
+      padding: 28px 20px;
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #fff4f6
+        );
+      border-radius: 24px;
+      box-shadow:
+        0 15px 40px rgba(80,20,30,0.15);
+      text-align: center;
+      animation: cardIn 1s ease;
+    }
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 9vw, 43px);
+      color: #8b0000;
+      margin: 0 0 12px;
+    }
+    .card h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(17px, 5vw, 23px);
+      color: #444;
+      line-height: 1.5;
+      margin: 10px 0 20px;
+    }
     .hero-img {
       width: 100%;
-      max-width: 280px;
-      border-radius: 15px;
-      margin: 15px 0;
-      box-shadow: 0 0 20px rgba(255,182,193,0.6);
+      max-width: 340px;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 18px;
+      box-shadow:
+        0 8px 25px rgba(139,0,0,0.15);
     }
-
-    p {
+    .intro {
+      font-family: 'Playfair Display', serif;
       font-size: 16px;
-      color: #333;
-      line-height: 1.5;
+      line-height: 1.7;
+      color: #444;
     }
-
+    .details {
+      margin-top: 20px;
+      padding: 18px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color: #8b0000;
+      font-size: 22px;
+      margin-top: 28px;
+    }
+    /* Countdown */
     #countdown {
-      font-size: 20px;
+      margin: 12px 0;
+      font-size: clamp(15px, 4.5vw, 20px);
       font-weight: bold;
-      margin: 15px 0;
       color: #b22222;
-      animation: warna 4s infinite;
+      line-height: 1.7;
     }
-
-    @keyframes warna {
-      0% { color: #b22222; }
-      50% { color: #ff69b4; }
-      100% { color: #b22222; }
+    /* Form */
+    form {
+      text-align: left;
+      margin-top: 15px;
     }
-
-    button {
-      background: linear-gradient(135deg, #b22222, #ff69b4);
-      color: white;
-      padding: 12px 20px;
+    label {
+      display: block;
+      margin-top: 12px;
+      color: #8b0000;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 7px;
+      border: 1px solid #e6a5ae;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      background: #fff;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #8b0000;
+    }
+    .button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 15px;
       border: none;
       border-radius: 10px;
-      cursor: pointer;
+      background: linear-gradient(
+        135deg,
+        #8b0000,
+        #d65365
+      );
+      color: white;
       font-size: 16px;
-      transition: 0.3s;
-      width: 100%;
+      cursor: pointer;
+    }
+    .location {
+      display: block;
+      text-decoration: none;
       margin-top: 10px;
     }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-
-    form {
-      margin-top: 20px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border: 1px solid #ff69b4;
-      border-radius: 10px;
+    .footer {
+      margin-top: 25px;
+      font-family: 'Playfair Display', serif;
+      color: #777;
       font-size: 14px;
-      box-sizing: border-box;
+      line-height: 1.6;
     }
-
-    textarea {
-      resize: none;
-    }
-
-    label {
-      font-weight: bold;
-      color: #b22222;
-      font-size: 14px;
-    }
-
-    /* Responsive untuk telefon kecil */
-    @media (max-width: 480px) {
-      h1 { font-size: 32px; }
-      h2 { font-size: 18px; }
-      p { font-size: 14px; }
-      #countdown { font-size: 16px; }
-      .card { padding: 20px 15px; }
+    /* =========================
+       TELEFON KECIL
+    ========================= */
+    @media (max-width: 380px) {
+      .cover {
+        padding: 12px 8px;
+      }
+      .cover-card {
+        min-height: 620px;
+        padding: 40px 18px;
+      }
+      .cover h1 {
+        font-size: 38px;
+      }
+      .ring {
+        font-size: 48px;
+      }
+      .card {
+        padding: 23px 15px;
+      }
+      .card h2 {
+        font-size: 17px;
+      }
+      .intro {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-
-<div class="sampul" onclick="bukaKad()">
-  💌
-  <p>Klik untuk buka jemputan</p>
-</div>
-
-<div class="card" id="kad" style="display:none;">
-  <h1>Majlis Perkhawinan</h1>
-  <h2>Albory Gysper & Syafikah Azman </h2>
-
-  <img src="tunang.jpeg" class="hero-img">
-
-  <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis pertunangan kami.</p>
-
-  <p>
-    📅 Tarikh: 10 Oktober 2026<br>
-    ⏰ Ketibaan: 12:00 Petang<br>
-    📍 Tempat: Kampung Air Semporna
-  </p>
-
-  <h3>Menuju Hari Bahagia</h3>
-  <h2 id="countdown"></h2>
-
-  <h3>Sahkan Kehadiran</h3>
-  <form action="https://formspree.io/f/meajjeaj" method="POST">
-    <label>Nama Tetamu</label>
-    <input type="text" name="Nama" required>
-
-    <label>Kehadiran</label>
-    <select name="Kehadiran" required>
-      <option value="">Pilih</option>
-      <option value="Hadir">Hadir</option>
-      <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
-
-    <label>Ucapan untuk pasangan</label>
-    <textarea name="Ucapan" rows="4"></textarea>
-
-    <button type="submit">Hantar Ucapan 📝</button>
-  </form>
-
-  <a href="https://maps.app.goo.gl/WsE3JJa4ftWFX4L7A" target="_blank">
-    <button>Buka Lokasi 📍</button>
-  </a>
-</div>
-
-<script>
-function bukaKad(){
-  document.querySelector(".sampul").style.display="none";
-  document.getElementById("kad").style.display="block";
-  document.querySelector("audio").play();
-}
-
-// Countdown
-var tarikhMajlis = new Date("October 10, 2026 12:00:00").getTime();
-var kiraan = setInterval(function() {
-  var sekarang = new Date().getTime();
-  var beza = tarikhMajlis - sekarang;
-
-  var hari = Math.floor(beza / (1000 * 60 * 60 * 24));
-  var jam = Math.floor((beza % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minit = Math.floor((beza % (1000 * 60 * 60)) / (1000 * 60));
-  var saat = Math.floor((beza % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-    hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
-}, 1000);
-</script>
-
-<audio autoplay loop>
-  <source src="lagu.mpeg" type="audio/mpeg">
-</audio>
-
+  <!-- =========================
+       MUKA DEPAN
+  ========================= -->
+  <section class="cover" id="cover">
+    <div class="cover-card">
+      <div class="flower flower1">🌸</div>
+      <div class="flower flower2">🌸</div>
+      <div class="flower flower3">🌿</div>
+      <div class="flower flower4">🌿</div>
+      <div class="small-title">
+        WEDDING INVITATION
+      </div>
+      <div class="ring">
+        💍
+      </div>
+      <h1>
+        Albory Gysper
+      </h1>
+      <div class="and">
+        &
+      </div>
+      <h1>
+        Syafikah Azman
+      </h1>
+      <div class="cover-date">
+        10 • 10 • 2026
+      </div>
+      <button
+        class="open-button"
+        onclick="bukaKad()"
+      >
+        💌 Buka Jemputan
+      </button>
+      <div class="tap-text">
+        Tekan untuk melihat jemputan
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       KAD JEMPUTAN
+  ========================= -->
+  <section class="invitation" id="invitation">
+    <div class="card">
+      <h1>
+        Majlis Perkahwinan
+      </h1>
+      <h2>
+        Albory Gysper<br>
+        &<br>
+        Syafikah Azman
+      </h2>
+      <img
+        src="tunang.jpeg"
+        class="hero-img"
+        alt="Albory Gysper dan Syafikah Azman"
+      >
+      <p class="intro">
+        Dengan penuh kesyukuran, kami menjemput
+        anda ke majlis perkahwinan kami.
+      </p>
+      <div class="details">
+        📅 <b>Tarikh</b><br>
+        10 Oktober 2026
+        <br><br>
+        ⏰ <b>Ketibaan</b><br>
+        12:00 Petang
+        <br><br>
+        📍 <b>Tempat</b><br>
+        Kampung Air, Semporna
+      </div>
+      <div class="section-title">
+        Menuju Hari Bahagia
+      </div>
+      <div id="countdown">
+        Mengira masa...
+      </div>
+      <div class="section-title">
+        Sahkan Kehadiran
+      </div>
+      <form
+        action="https://formspree.io/f/meajjeaj"
+        method="POST"
+      >
+        <label for="nama">
+          Nama Tetamu
+        </label>
+        <input
+          id="nama"
+          type="text"
+          name="Nama"
+          placeholder="Masukkan nama anda"
+          required
+        >
+        <label for="kehadiran">
+          Kehadiran
+        </label>
+        <select
+          id="kehadiran"
+          name="Kehadiran"
+          required
+        >
+          <option value="">
+            Pilih
+          </option>
+          <option value="Hadir">
+            Hadir
+          </option>
+          <option value="Tidak Hadir">
+            Tidak Hadir
+          </option>
+        </select>
+        <label for="ucapan">
+          Ucapan untuk pasangan
+        </label>
+        <textarea
+          id="ucapan"
+          name="Ucapan"
+          placeholder="Tulis ucapan anda..."
+        ></textarea>
+        <button
+          type="submit"
+          class="button"
+        >
+          Hantar Ucapan 📝
+        </button>
+      </form>
+      <a
+        class="location"
+        href="https://maps.app.goo.gl/WsE3JJa4ftWFX4L7A"
+        target="_blank"
+      >
+        <button
+          type="button"
+          class="button"
+        >
+          Buka Lokasi 📍
+        </button>
+      </a>
+      <div class="footer">
+        Terima kasih atas doa<br>
+        dan kehadiran anda 🤍
+      </div>
+    </div>
+  </section>
+  <!-- MUZIK -->
+  <audio
+    id="muzik"
+    loop
+  >
+    <source
+      src="lagu.mpeg"
+      type="audio/mpeg"
+    >
+  </audio>
+  <script>
+    /* =========================
+       BUKA KAD
+    ========================= */
+    function bukaKad() {
+      document.getElementById("cover").style.display = "none";
+      document.getElementById("invitation").style.display = "block";
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+      var muzik =
+        document.getElementById("muzik");
+      muzik.play().catch(function() {
+        console.log("Muzik memerlukan tindakan pengguna.");
+      });
+    }
+    /* =========================
+       COUNTDOWN
+    ========================= */
+    var tarikhMajlis =
+      new Date(
+        "October 10, 2026 12:00:00"
+      ).getTime();
+    var kiraan =
+      setInterval(function() {
+        var sekarang =
+          new Date().getTime();
+        var beza =
+          tarikhMajlis - sekarang;
+        if (beza <= 0) {
+          document.getElementById(
+            "countdown"
+          ).innerHTML =
+            "Hari ini adalah hari bahagia! 💍❤️";
+          clearInterval(kiraan);
+          return;
+        }
+        var hari =
+          Math.floor(
+            beza /
+            (1000 * 60 * 60 * 24)
+          );
+        var jam =
+          Math.floor(
+            (beza %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+          );
+        var minit =
+          Math.floor(
+            (beza %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+          );
+        var saat =
+          Math.floor(
+            (beza %
+            (1000 * 60)) /
+            1000
+          );
+        document.getElementById(
+          "countdown"
+        ).innerHTML =
+          hari + " Hari " +
+          jam + " Jam " +
+          minit + " Minit " +
+          saat + " Saat";
+      }, 1000);
+  </script>
 </body>
 </html>

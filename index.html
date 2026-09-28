@@ -127,6 +127,19 @@
       color: #b22222;
     }
 
+    /* Bunga jatuh */
+    .bunga {
+      position: fixed;
+      top: -50px;
+      font-size: 28px;
+      animation: jatuh 8s linear infinite;
+      color: pink;
+    }
+
+    @keyframes jatuh {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -138,14 +151,14 @@
 
 <div class="card" id="kad" style="display:none;">
   <h1>Majlis Pertunangan</h1>
-  <h2>Albory Gysper & Syafikah Ahmad </h2>
+  <h2>Albory Gysper & Syafikah Ahmad</h2>
 
   <img src="tunang.jpeg" class="hero-img">
 
   <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis pertunangan kami.</p>
 
   <p>
-    📅 Tarikh: 10 oktober 2026<br>
+    📅 Tarikh: 10 Oktober 2026<br>
     ⏰ Ketibaan: 12:00 Petang<br>
     📍 Tempat: Kampung Air Semporna
   </p>
@@ -183,6 +196,7 @@ function bukaKad(){
   document.querySelector("audio").play();
 }
 
+// Countdown
 var tarikhMajlis = new Date("October 10, 2026 12:00:00").getTime();
 var kiraan = setInterval(function() {
   var sekarang = new Date().getTime();
@@ -197,9 +211,17 @@ var kiraan = setInterval(function() {
     hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
 }, 1000);
 
-  document.getElementById("countdown").innerHTML =
-    hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
-}, 1000);
+// Bunga jatuh
+function buatBunga(){
+  const bunga = document.createElement("div");
+  bunga.classList.add("bunga");
+  bunga.innerHTML = "🌸";
+  bunga.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(bunga);
+
+  setTimeout(()=>{ bunga.remove(); }, 8000);
+}
+setInterval(buatBunga, 1000);
 </script>
 
 <audio autoplay loop>
@@ -208,4 +230,3 @@ var kiraan = setInterval(function() {
 
 </body>
 </html>
-

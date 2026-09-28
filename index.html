@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -6,6 +7,9 @@
     content="width=device-width, initial-scale=1.0">
   <title>Kad Jemputan Tunang</title>
   <meta name="description" content="Jemputan majlis tunang kami, sila klik untuk maklumat lanjut.">
+
+  <!-- Font elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -17,28 +21,39 @@
     }
 
     .sampul {
+      display: inline-block;
+      background: radial-gradient(circle, #ffe4e1, #ffb6c1);
+      padding: 30px;
+      border-radius: 50%;
       font-size: 80px;
-      margin-top: 120px;
+      margin-top: 100px;
       cursor: pointer;
-      animation: goyang 2s infinite;
+      animation: pulse 2s infinite;
       color: #d2691e;
     }
 
-    @keyframes goyang {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(5deg); }
-      50% { transform: rotate(-5deg); }
-      100% { transform: rotate(0deg); }
+    .sampul p {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin-top: 10px;
+      color: #8B0000;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     .card {
-      background: white;
+      background: linear-gradient(135deg, #ffffff, #fff0f5);
       width: 95%;
-      max-width: 600px;
-      padding: 40px 30px;
-      border-radius: 25px;
-      margin: 40px auto;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      max-width: 500px;
+      padding: 30px 20px;
+      border-radius: 20px;
+      margin: 20px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border: 5px double #ff69b4;
       animation: fadeIn 1.5s ease;
     }
 
@@ -48,36 +63,38 @@
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 48px;
-      color: #b22222;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #8B0000;
       margin-bottom: 10px;
+      letter-spacing: 2px;
     }
 
     h2 {
-      font-size: 26px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 22px;
       color: #444;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .hero-img {
-      width: 85%;
-      max-width: 350px;
-      border-radius: 20px;
-      margin: 20px 0;
-      box-shadow: 0 0 25px rgba(255,182,193,0.6);
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      margin: 15px 0;
+      box-shadow: 0 0 20px rgba(255,182,193,0.6);
     }
 
     p {
-      font-size: 18px;
+      font-size: 16px;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     #countdown {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
-      margin: 20px 0;
+      margin: 15px 0;
       color: #b22222;
       animation: warna 4s infinite;
     }
@@ -91,30 +108,32 @@
     button {
       background: linear-gradient(135deg, #b22222, #ff69b4);
       color: white;
-      padding: 14px 24px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       font-size: 16px;
       transition: 0.3s;
+      width: 100%;
+      margin-top: 10px;
     }
 
     button:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
 
     form {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     input, select, textarea {
-      width: 90%;
-      padding: 12px;
-      margin-top: 12px;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
       border: 1px solid #ff69b4;
-      border-radius: 12px;
-      font-size: 16px;
+      border-radius: 10px;
+      font-size: 14px;
       box-sizing: border-box;
     }
 
@@ -125,6 +144,16 @@
     label {
       font-weight: bold;
       color: #b22222;
+      font-size: 14px;
+    }
+
+    /* Responsive untuk telefon kecil */
+    @media (max-width: 480px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 18px; }
+      p { font-size: 14px; }
+      #countdown { font-size: 16px; }
+      .card { padding: 20px 15px; }
     }
   </style>
 </head>
@@ -136,8 +165,8 @@
 </div>
 
 <div class="card" id="kad" style="display:none;">
-  <h1>Majlis Pertunangan</h1>
-  <h2>Albory Gysper & Syafikah Ahmad</h2>
+  <h1>Majlis Pertunangan 💍</h1>
+  <h2>Albory Gysper & Syafikah Ahmad 🌸</h2>
 
   <img src="tunang.jpeg" class="hero-img">
 
@@ -154,18 +183,18 @@
 
   <h3>Sahkan Kehadiran</h3>
   <form action="https://formspree.io/f/meajjeaj" method="POST">
-    <label>Nama Tetamu</label><br>
-    <input type="text" name="Nama" required><br><br>
+    <label>Nama Tetamu</label>
+    <input type="text" name="Nama" required>
 
-    <label>Kehadiran</label><br>
+    <label>Kehadiran</label>
     <select name="Kehadiran" required>
       <option value="">Pilih</option>
       <option value="Hadir">Hadir</option>
       <option value="Tidak Hadir">Tidak Hadir</option>
-    </select><br><br>
+    </select>
 
-    <label>Ucapan untuk pasangan</label><br>
-    <textarea name="Ucapan" rows="4"></textarea><br><br>
+    <label>Ucapan untuk pasangan</label>
+    <textarea name="Ucapan" rows="4"></textarea>
 
     <button type="submit">Hantar Ucapan 📝</button>
   </form>
@@ -203,4 +232,3 @@ var kiraan = setInterval(function() {
 </audio>
 
 </body>
-</html>

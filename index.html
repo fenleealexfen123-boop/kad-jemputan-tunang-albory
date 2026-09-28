@@ -1,566 +1,779 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation</title>
-  <meta name="description" content="Jemputan majlis perkahwinan Albory Gysper & Syafikah Azman">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #fffafa 0%, #ffeef1 45%, #f8dfe3 100%);
-      color: #333;
-      overflow-x: hidden;
-    }
-    /* =========================
-       MUKA DEPAN
-    ========================= */
-    .cover {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 25px 15px;
-    }
-    .cover-card {
-      width: 100%;
-      max-width: 410px;
-      min-height: 650px;
-      padding: 50px 25px;
-      border: 1px solid rgba(139, 0, 0, 0.15);
-      border-radius: 25px;
-      background:
-        linear-gradient(
-          rgba(255,255,255,0.90),
-          rgba(255,245,247,0.90)
-        );
-      box-shadow:
-        0 20px 50px rgba(100, 30, 40, 0.18);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      animation: coverIn 1.2s ease;
-    }
-    @keyframes coverIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    .flower {
-      position: absolute;
-      font-size: 42px;
-      opacity: 0.7;
-    }
-    .flower1 {
-      top: 20px;
-      left: 18px;
-      transform: rotate(-20deg);
-    }
-    .flower2 {
-      top: 20px;
-      right: 18px;
-      transform: rotate(20deg);
-    }
-    .flower3 {
-      bottom: 20px;
-      left: 18px;
-      transform: rotate(20deg);
-    }
-    .flower4 {
-      bottom: 20px;
-      right: 18px;
-      transform: rotate(-20deg);
-    }
-    .small-title {
-      font-family: 'Cinzel', serif;
-      font-size: 13px;
-      letter-spacing: 3px;
-      color: #8b0000;
-      margin-bottom: 30px;
-    }
-    .ring {
-      font-size: 55px;
-      margin-bottom: 15px;
-      animation: floating 3s ease-in-out infinite;
-    }
-    @keyframes floating {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-    .cover h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(38px, 11vw, 55px);
-      line-height: 1.15;
-      color: #8b0000;
-      margin: 0;
-    }
-    .and {
-      font-family: 'Playfair Display', serif;
-      font-size: 25px;
-      color: #b8860b;
-      margin: 8px 0;
-    }
-    .cover-date {
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      letter-spacing: 2px;
-      color: #555;
-      margin-top: 25px;
-    }
-    .open-button {
-      margin-top: 40px;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 50px;
-      background: linear-gradient(
-        135deg,
-        #8b0000,
-        #c94b5a
-      );
-      color: white;
-      font-size: 15px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      box-shadow:
-        0 8px 20px rgba(139,0,0,0.25);
-      transition: 0.3s;
-    }
-    .open-button:hover {
-      transform: translateY(-3px);
-    }
-    .open-button:active {
-      transform: scale(0.96);
-    }
-    .tap-text {
-      font-size: 12px;
-      color: #888;
-      margin-top: 12px;
-    }
-    /* =========================
-       KAD UTAMA
-    ========================= */
-    .invitation {
-      display: none;
-      width: 100%;
-      padding: 20px 12px 40px;
-    }
-    .card {
-      width: 100%;
-      max-width: 430px;
-      margin: auto;
-      padding: 28px 20px;
-      background:
-        linear-gradient(
-          135deg,
-          #ffffff,
-          #fff4f6
-        );
-      border-radius: 24px;
-      box-shadow:
-        0 15px 40px rgba(80,20,30,0.15);
-      text-align: center;
-      animation: cardIn 1s ease;
-    }
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: translateY(35px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .card h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 9vw, 43px);
-      color: #8b0000;
-      margin: 0 0 12px;
-    }
-    .card h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(17px, 5vw, 23px);
-      color: #444;
-      line-height: 1.5;
-      margin: 10px 0 20px;
-    }
-    .hero-img {
-      width: 100%;
-      max-width: 340px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-      border-radius: 18px;
-      box-shadow:
-        0 8px 25px rgba(139,0,0,0.15);
-    }
-    .intro {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      line-height: 1.7;
-      color: #444;
-    }
-    .details {
-      margin-top: 20px;
-      padding: 18px 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.8);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      color: #8b0000;
-      font-size: 22px;
-      margin-top: 28px;
-    }
-    /* Countdown */
-    #countdown {
-      margin: 12px 0;
-      font-size: clamp(15px, 4.5vw, 20px);
-      font-weight: bold;
-      color: #b22222;
-      line-height: 1.7;
-    }
-    /* Form */
-    form {
-      text-align: left;
-      margin-top: 15px;
-    }
-    label {
-      display: block;
-      margin-top: 12px;
-      color: #8b0000;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 7px;
-      border: 1px solid #e6a5ae;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      background: #fff;
-      outline: none;
-    }
-    textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #8b0000;
-    }
-    .button {
-      width: 100%;
-      padding: 13px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(
-        135deg,
-        #8b0000,
-        #d65365
-      );
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .location {
-      display: block;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-    .footer {
-      margin-top: 25px;
-      font-family: 'Playfair Display', serif;
-      color: #777;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    /* =========================
-       TELEFON KECIL
-    ========================= */
-    @media (max-width: 380px) {
-      .cover {
-        padding: 12px 8px;
-      }
-      .cover-card {
-        min-height: 620px;
-        padding: 40px 18px;
-      }
-      .cover h1 {
-        font-size: 38px;
-      }
-      .ring {
-        font-size: 48px;
-      }
-      .card {
-        padding: 23px 15px;
-      }
-      .card h2 {
-        font-size: 17px;
-      }
-      .intro {
-        font-size: 14px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Invitation | Albory & Syafikah</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f8f3ee;
+  color: #3d2923;
+}
+
+/* ================= COVER ================= */
+
+.cover {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background:
+    radial-gradient(circle at top left, #fffaf5, transparent 40%),
+    radial-gradient(circle at bottom right, #ead7c8, transparent 45%),
+    #f8f3ee;
+}
+
+.cover-card {
+  width: 100%;
+  max-width: 430px;
+  min-height: 650px;
+  padding: 45px 25px;
+  border-radius: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(139,0,0,0.15);
+
+  box-shadow:
+    0 20px 50px rgba(80,40,20,0.15);
+}
+
+.cover-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #c9a77c;
+  border-radius: 23px;
+  pointer-events: none;
+}
+
+.flower {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.small-title {
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #8b0000;
+  margin-bottom: 25px;
+}
+
+.ring {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.cover-card h1 {
+  font-size: 17px;
+  letter-spacing: 4px;
+  color: #8b0000;
+  margin-bottom: 20px;
+}
+
+.cover-names {
+  font-size: 34px;
+  line-height: 1.3;
+  color: #4a2720;
+  margin-bottom: 25px;
+}
+
+.cover-date {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+.open-btn {
+  border: none;
+  padding: 15px 28px;
+  border-radius: 30px;
+  background: #8b0000;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(139,0,0,0.25);
+  transition: 0.3s;
+}
+
+.open-btn:hover {
+  transform: translateY(-2px);
+  background: #650000;
+}
+
+/* ================= INVITATION ================= */
+
+.invitation {
+  display: none;
+  padding: 25px 15px;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  text-align: center;
+  padding: 45px 20px 25px;
+  background: #fffaf6;
+}
+
+.header p {
+  color: #8b0000;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #4a2720;
+  margin-bottom: 10px;
+}
+
+.header h2 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #8b0000;
+}
+
+/* ================= VIDEO ================= */
+
+.video-container {
+  padding: 20px;
+  background: #fffaf6;
+}
+
+.hero-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: auto;
+
+  border-radius: 20px;
+  object-fit: cover;
+
+  box-shadow: 0 8px 25px rgba(139,0,0,0.15);
+
+  /* Pastikan video tidak ada bunyi */
+  pointer-events: none;
+}
+
+/* ================= DETAILS ================= */
+
+.details {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.details h3 {
+  color: #8b0000;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.detail-box {
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background: #faf5f0;
+}
+
+.detail-box strong {
+  display: block;
+  color: #8b0000;
+  margin-bottom: 5px;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown-section {
+  text-align: center;
+  padding: 30px 15px;
+  background: #8b0000;
+  color: white;
+}
+
+.countdown-section h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.time-box {
+  background: rgba(255,255,255,0.15);
+  padding: 12px 5px;
+  border-radius: 12px;
+}
+
+.time-box span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.time-box small {
+  font-size: 11px;
+}
+
+/* ================= RSVP ================= */
+
+.rsvp {
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.rsvp h3 {
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.rsvp p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.rsvp textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 25px;
+
+  background: #8b0000;
+  color: white;
+
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* ================= LOCATION ================= */
+
+.location {
+  text-align: center;
+  padding: 30px 20px;
+  background: #fffaf6;
+}
+
+.location h3 {
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 13px 25px;
+
+  background: #8b0000;
+  color: white;
+
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 13px;
+  color: #777;
+  background: #faf5f0;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+
+  .cover {
+    padding: 15px;
+  }
+
+  .cover-card {
+    min-height: 620px;
+    padding: 40px 20px;
+  }
+
+  .cover-names {
+    font-size: 29px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header h2 {
+    font-size: 21px;
+  }
+
+  .invitation {
+    padding: 10px;
+  }
+
+  .container {
+    border-radius: 20px;
+  }
+
+  .countdown {
+    gap: 5px;
+  }
+
+  .time-box span {
+    font-size: 20px;
+  }
+
+}
+</style>
 </head>
+
 <body>
-  <!-- =========================
-       MUKA DEPAN
-  ========================= -->
-  <section class="cover" id="cover">
-    <div class="cover-card">
-      <div class="flower flower1">🌸</div>
-      <div class="flower flower2">🌸</div>
-      <div class="flower flower3">🌿</div>
-      <div class="flower flower4">🌿</div>
-      <div class="small-title">
-        WEDDING INVITATION
-      </div>
-      <div class="ring">
-        💍
-      </div>
-      <h1>
-        Albory Gysper
-      </h1>
-      <div class="and">
-        &
-      </div>
-      <h1>
-        Syafikah Azman
-      </h1>
-      <div class="cover-date">
-        10 • 10 • 2026
-      </div>
-      <button
-        class="open-button"
-        onclick="bukaKad()"
-      >
-        💌 Buka Jemputan
-      </button>
-      <div class="tap-text">
-        Tekan untuk melihat jemputan
-      </div>
+
+<!-- ================= COVER ================= -->
+
+<section class="cover" id="cover">
+
+  <div class="cover-card">
+
+    <div class="flower">🌸</div>
+
+    <div class="small-title">
+      WEDDING INVITATION
     </div>
-  </section>
-  <!-- =========================
-       KAD JEMPUTAN
-  ========================= -->
-  <section class="invitation" id="invitation">
-    <div class="card">
+
+    <div class="ring">
+      💍
+    </div>
+
+    <h1>
+      MAJLIS PERKAHWINAN
+    </h1>
+
+    <div class="cover-names">
+      Albory Gysper<br>
+      <span>&</span><br>
+      Syafikah Azman
+    </div>
+
+    <div class="cover-date">
+      10 • 10 • 2026
+    </div>
+
+    <button class="open-btn" onclick="openInvitation()">
+      💌 Buka Jemputan
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= INVITATION ================= -->
+
+<section class="invitation" id="invitation">
+
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+      <p>
+        DENGAN PENUH KESYUKURAN
+      </p>
+
       <h1>
         Majlis Perkahwinan
       </h1>
+
       <h2>
-        Albory Gysper<br>
-        &<br>
-        Syafikah Azman
+        Albory Gysper & Syafikah Azman
       </h2>
-      <img
-        src="tunang.jpeg"
-        class="hero-img"
-        alt="Albory Gysper dan Syafikah Azman"
+
+    </div>
+
+
+    <!-- VIDEO -->
+
+    <div class="video-container">
+
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
       >
-      <p class="intro">
-        Dengan penuh kesyukuran, kami menjemput
-        anda ke majlis perkahwinan kami.
+
+        <source
+          src="video.mp4"
+          type="video/mp4"
+        >
+
+        Browser anda tidak menyokong video.
+
+      </video>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="details">
+
+      <h3>
+        Dengan Sukacitanya Kami Menjemput
+      </h3>
+
+      <p>
+        Tuan/Puan/Encik/Cik ke majlis perkahwinan
+        kami untuk bersama-sama meraikan
+        hari bahagia ini.
       </p>
-      <div class="details">
-        📅 <b>Tarikh</b><br>
+
+
+      <div class="detail-box">
+
+        <strong>📅 TARIKH</strong>
+
         10 Oktober 2026
-        <br><br>
-        ⏰ <b>Ketibaan</b><br>
-        12:00 Petang
-        <br><br>
-        📍 <b>Tempat</b><br>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <strong>🕛 MASA</strong>
+
+        12:00 Tengah Hari
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <strong>📍 TEMPAT</strong>
+
         Kampung Air, Semporna
+
       </div>
-      <div class="section-title">
-        Menuju Hari Bahagia
+
+    </div>
+
+
+    <!-- COUNTDOWN -->
+
+    <div class="countdown-section">
+
+      <h3>
+        Menghitung Hari Bahagia 💍
+      </h3>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <span id="days">0</span>
+          <small>Hari</small>
+        </div>
+
+        <div class="time-box">
+          <span id="hours">0</span>
+          <small>Jam</small>
+        </div>
+
+        <div class="time-box">
+          <span id="minutes">0</span>
+          <small>Minit</small>
+        </div>
+
+        <div class="time-box">
+          <span id="seconds">0</span>
+          <small>Saat</small>
+        </div>
+
       </div>
-      <div id="countdown">
-        Mengira masa...
-      </div>
-      <div class="section-title">
-        Sahkan Kehadiran
-      </div>
+
+    </div>
+
+
+    <!-- RSVP -->
+
+    <div class="rsvp">
+
+      <h3>
+        RSVP
+      </h3>
+
+      <p>
+        Sila sahkan kehadiran anda.
+      </p>
+
+
       <form
-        action="https://formspree.io/f/xoevyqjy"
+        action="https://https://formspree.io/f/xoevyqjy"
         method="POST"
       >
-        <label for="nama">
-          Nama Tetamu
-        </label>
+
         <input
-          id="nama"
           type="text"
           name="Nama"
-          placeholder="Masukkan nama anda"
+          placeholder="Nama anda"
           required
         >
-        <label for="kehadiran">
-          Kehadiran
-        </label>
+
+
         <select
-          id="kehadiran"
           name="Kehadiran"
           required
         >
+
           <option value="">
-            Pilih
+            -- Sila pilih kehadiran --
           </option>
+
           <option value="Hadir">
-            Hadir
+            Saya akan hadir
           </option>
-          <option value="Tidak Hadir">
-            Tidak Hadir
+
+          <option value="Tidak hadir">
+            Saya tidak dapat hadir
           </option>
+
         </select>
-        <label for="ucapan">
-          Ucapan untuk pasangan
-        </label>
+
+
+        <input
+          type="number"
+          name="Jumlah tetamu"
+          placeholder="Jumlah tetamu"
+          min="1"
+          max="20"
+        >
+
+
         <textarea
-          id="ucapan"
-          name="Ucapan"
-          placeholder="Tulis ucapan anda..."
+          name="Pesanan"
+          placeholder="Pesanan untuk pengantin..."
         ></textarea>
+
+
         <button
           type="submit"
-          class="button"
+          class="submit-btn"
         >
-          Hantar Ucapan 📝
+          Hantar RSVP 💌
         </button>
+
       </form>
+
+    </div>
+
+
+    <!-- LOCATION -->
+
+    <div class="location">
+
+      <h3>
+        Lokasi Majlis 📍
+      </h3>
+
+      <p>
+        Kampung Air, Semporna
+      </p>
+
+
       <a
-        class="location"
         href="https://maps.app.goo.gl/WsE3JJa4ftWFX4L7A"
         target="_blank"
+        class="map-btn"
       >
-        <button
-          type="button"
-          class="button"
-        >
-          Buka Lokasi 📍
-        </button>
+        🗺️ Buka Google Maps
       </a>
-      <div class="footer">
-        Terima kasih atas doa<br>
-        dan kehadiran anda 🤍
-      </div>
+
     </div>
-  </section>
-  <!-- MUZIK -->
-  <audio
-    id="muzik"
-    loop
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+      <p>
+        Terima kasih atas doa dan kehadiran
+        anda di hari istimewa kami. 🤍
+      </p>
+
+      <br>
+
+      <p>
+        Albory Gysper & Syafikah Azman
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MUSIC ================= -->
+
+<audio
+  id="muzik"
+  loop
+>
+  <source
+    src="lagu.mpeg"
+    type="audio/mpeg"
   >
-    <source
-      src="lagu.mpeg"
-      type="audio/mpeg"
-    >
-  </audio>
-  <script>
-    /* =========================
-       BUKA KAD
-    ========================= */
-    function bukaKad() {
-      document.getElementById("cover").style.display = "none";
-      document.getElementById("invitation").style.display = "block";
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-      var muzik =
-        document.getElementById("muzik");
-      muzik.play().catch(function() {
-        console.log("Muzik memerlukan tindakan pengguna.");
-      });
-    }
-    /* =========================
-       COUNTDOWN
-    ========================= */
-    var tarikhMajlis =
-      new Date(
-        "October 10, 2026 12:00:00"
-      ).getTime();
-    var kiraan =
-      setInterval(function() {
-        var sekarang =
-          new Date().getTime();
-        var beza =
-          tarikhMajlis - sekarang;
-        if (beza <= 0) {
-          document.getElementById(
-            "countdown"
-          ).innerHTML =
-            "Hari ini adalah hari bahagia! 💍❤️";
-          clearInterval(kiraan);
-          return;
-        }
-        var hari =
-          Math.floor(
-            beza /
-            (1000 * 60 * 60 * 24)
-          );
-        var jam =
-          Math.floor(
-            (beza %
-            (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
-          );
-        var minit =
-          Math.floor(
-            (beza %
-            (1000 * 60 * 60)) /
-            (1000 * 60)
-          );
-        var saat =
-          Math.floor(
-            (beza %
-            (1000 * 60)) /
-            1000
-          );
-        document.getElementById(
-          "countdown"
-        ).innerHTML =
-          hari + " Hari " +
-          jam + " Jam " +
-          minit + " Minit " +
-          saat + " Saat";
-      }, 1000);
-  </script>
+</audio>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* ================= BUKA JEMPUTAN ================= */
+
+function openInvitation() {
+
+  document.getElementById("cover").style.display = "none";
+
+  document.getElementById("invitation").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+
+  /* Mainkan muzik */
+
+  const muzik = document.getElementById("muzik");
+
+  muzik.play().catch(function(error) {
+    console.log("Audio tidak dapat dimainkan:", error);
+  });
+
+
+  /* Pastikan video dimainkan */
+
+  const video = document.querySelector(".hero-video");
+
+  video.muted = true;
+
+  video.play().catch(function(error) {
+    console.log("Video autoplay disekat:", error);
+  });
+
+}
+
+
+/* ================= COUNTDOWN ================= */
+
+const weddingDate =
+  new Date("October 10, 2026 12:00:00").getTime();
+
+
+const countdown = setInterval(function() {
+
+  const now = new Date().getTime();
+
+  const distance = weddingDate - now;
+
+
+  if (distance <= 0) {
+
+    clearInterval(countdown);
+
+    document.getElementById("days").innerHTML = "0";
+    document.getElementById("hours").innerHTML = "0";
+    document.getElementById("minutes").innerHTML = "0";
+    document.getElementById("seconds").innerHTML = "0";
+
+    return;
+  }
+
+
+  const days =
+    Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  const hours =
+    Math.floor(
+      (distance % (1000 * 60 * 60 * 24))
+      / (1000 * 60 * 60)
+    );
+
+  const minutes =
+    Math.floor(
+      (distance % (1000 * 60 * 60))
+      / (1000 * 60)
+    );
+
+  const seconds =
+    Math.floor(
+      (distance % (1000 * 60))
+      / 1000
+    );
+
+
+  document.getElementById("days").innerHTML = days;
+
+  document.getElementById("hours").innerHTML = hours;
+
+  document.getElementById("minutes").innerHTML = minutes;
+
+  document.getElementById("seconds").innerHTML = seconds;
+
+}, 1000);
+
+</script>
+
 </body>
 </html>

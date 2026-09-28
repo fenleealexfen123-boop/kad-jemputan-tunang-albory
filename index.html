@@ -126,11 +126,6 @@
       font-weight: bold;
       color: #b22222;
     }
-
-    @keyframes jatuh {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
   </style>
 </head>
 <body>
@@ -201,10 +196,6 @@ var kiraan = setInterval(function() {
   document.getElementById("countdown").innerHTML =
     hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
 }, 1000);
-
-  setTimeout(()=>{ bunga.remove(); }, 8000);
-}
-setInterval(buatBunga, 1000);
 </script>
 
 <audio autoplay loop>
